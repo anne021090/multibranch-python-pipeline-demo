@@ -103,7 +103,20 @@ pipeline {
                 echo 'Running integration verification for develop branch'
             }
         }
+
+        stage('Production readiness check') {
+            when {
+                branch 'main'
+            }
  
+            steps {
+                echo 'production readiness'
+            }
+        }
+
+
+
+
         stage('Feature Branch Verification') {
             when {
                 expression {
